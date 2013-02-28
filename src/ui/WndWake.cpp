@@ -106,7 +106,7 @@ namespace ui {
 		
 		int text_length = (int)::SendMessageW(m_hwnd, WM_GETTEXTLENGTH, 0, 0);
 		ret.resize(text_length);
-		::SendMessage(getHWND(), WM_GETTEXT, (WPARAM)(text_length + 1), (LPARAM)&ret[0]);
+		::SendMessage(getHWND(), WM_GETTEXT, (WPARAM)(text_length + 1), (LPARAM)ret.c_str());
 
 		return ret;
 	}
