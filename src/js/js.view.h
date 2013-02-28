@@ -18,6 +18,7 @@ namespace js {
 
 		static v8::Handle<v8::Value> Create(const v8::Arguments & args);
 		static v8::Handle<v8::Value> Wake(const v8::Arguments & args);
+		static v8::Handle<v8::Value> Sleep(const v8::Arguments & args);
 		static v8::Handle<v8::Value> AddChild(const v8::Arguments & args);
 		static v8::Handle<v8::Value> SetBounds(const v8::Arguments & args);
 	};

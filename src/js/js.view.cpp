@@ -19,9 +19,15 @@ namespace js {
 
 		v8::Persistent<v8::Object> obj(v8::Object::New());
 
+		/// Life cycle
 		NODE_SET_METHOD(obj, "create", &view::Create);
 		NODE_SET_METHOD(obj, "wake", &view::Wake);
+		NODE_SET_METHOD(obj, "sleep", &view::Sleep);
+
+		/// Properties
 		NODE_SET_METHOD(obj, "setBounds", &view::SetBounds);
+
+		/// Structure
 		NODE_SET_METHOD(obj, "addChild", &view::AddChild);
 
 		target->Set(v8::String::NewSymbol("view"), obj);
@@ -50,6 +56,28 @@ namespace js {
 		bool ret = s_core->getDispatcher()->send<ui::traits::Boolean, ui::traits::Boolean>(
 			true,
 			ino::make_delegate(handle->getHandle().get(), &ui::Wnd::wake_)
+			);
+
+		return scope.Close(v8::Boolean::New(ret));
+	}
+
+	v8::Handle<v8::Value> view::Sleep(const v8::Arguments & args)
+	{
+		v8::HandleScope scope;
+
+		if (!util::check_argument_count(args, 1)) {
+			return scope.Close(v8::Undefined());
+		}
+
+		v8::Local<v8::Object> obj;
+		if (!util::read_arg_object(args, 0, &obj)) {
+			return scope.Close(v8::Undefined());
+		}
+
+		Handle * handle = node::ObjectWrap::Unwrap<Handle>(obj);
+		bool ret = s_core->getDispatcher()->send<ui::traits::Boolean, ui::traits::Boolean>(
+			true,
+			ino::make_delegate(handle->getHandle().get(), &ui::Wnd::sleep_)
 			);
 
 		return scope.Close(v8::Boolean::New(ret));

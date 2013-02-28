@@ -129,6 +129,8 @@ namespace ui {
 		{ addChild(wnd); return true; };
 		bool wake_(bool _)
 		{ wake(); return true; }
+		bool sleep_(bool _)
+		{ sleep(); return true; }
 	};
 	
 	namespace traits {
