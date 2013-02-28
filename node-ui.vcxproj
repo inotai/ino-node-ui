@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ino\BugCheck.cpp" />
+    <ClCompile Include="src\ino\Debugger.cpp" />
+    <ClCompile Include="src\js\js.Handle.cpp" />
+    <ClCompile Include="src\js\js.view.cpp" />
+    <ClCompile Include="src\js\module.cpp" />
+    <ClCompile Include="src\precompiled.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\ui\Core.cpp" />
+    <ClCompile Include="src\ui\Dispatcher.cpp" />
+    <ClCompile Include="src\ui\Factory.cpp" />
+    <ClCompile Include="src\ui\util.cpp" />
+    <ClCompile Include="src\ui\Wnd.cpp" />
+    <ClCompile Include="src\ino\util.cpp" />
+    <ClCompile Include="src\ui\WndWake.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ino\BugCheck.h" />
+    <ClInclude Include="src\ino\Debugger.h" />
+    <ClInclude Include="src\ino\macros.h" />
+    <ClInclude Include="src\ino\platform.h" />
+    <ClInclude Include="src\js\js.Button.h" />
+    <ClInclude Include="src\js\js.Handle.h" />
+    <ClInclude Include="src\js\js.view.h" />
+    <ClInclude Include="src\js\js.util.h" />
+    <ClInclude Include="src\precompiled.h" />
+    <ClInclude Include="src\res.h" />
+    <ClInclude Include="src\ui\Button.h" />
+    <ClInclude Include="src\ui\Constructor.h" />
+    <ClInclude Include="src\ui\Core.h" />
+    <ClInclude Include="src\ui\Dispatcher.h" />
+    <ClInclude Include="src\ino\delegates.h" />
+    <ClInclude Include="src\ui\Factory.h" />
+    <ClInclude Include="src\ui\IWnd.h" />
+    <ClInclude Include="src\ui\Message.h" />
+    <ClInclude Include="src\ui\Msg.h" />
+    <ClInclude Include="src\ui\Rect.h" />
+    <ClInclude Include="src\ui\traits.h" />
+    <ClInclude Include="src\ui\types.h" />
+    <ClInclude Include="src\ino\util.h" />
+    <ClInclude Include="src\ui\Window.h" />
+    <ClInclude Include="src\ui\WndChild.h" />
+    <ClInclude Include="src\ui\WndSleep.h" />
+    <ClInclude Include="src\ui\WndWake.h" />
+    <ClInclude Include="src\ui\wnd_seed.h" />
+    <ClInclude Include="src\uv\Async.h" />
+    <ClInclude Include="src\uv\Mutex.h" />
+    <ClInclude Include="src\uv\TScopedLock.h" />
+    <ClInclude Include="src\uv\TQueue.h" />
+    <ClInclude Include="src\ui\util.h" />
+    <ClInclude Include="src\ui\Wnd.h" />
+    <ClInclude Include="src\uv\Semaphore.h" />
+    <ClInclude Include="src\uv\Thread.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="src\ui_native.node.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="src\res.rc" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E95E952C-D14F-2420-2373-1758BC4B8B69}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ui</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <CharacterSet>Unicode</CharacterSet>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="PropertySheets">
+    <Import Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <ExecutablePath>$(ExecutablePath);$(MSBuildProjectDirectory)\..\bin\;$(MSBuildProjectDirectory)\..\bin\</ExecutablePath>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <IntDir>$(SolutionDir)temp\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkIncremental>
+    <OutDir>$(SolutionDir)build\$(Configuration)\</OutDir>
+    <TargetExt>.node</TargetExt>
+    <TargetName>ui_native</TargetName>
+    <TargetPath>$(OutDir)\$(TargetName)$(TargetExt)</TargetPath>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Cohen\.node-gyp\0.8.18\src;C:\Users\Cohen\.node-gyp\0.8.18\deps\uv\include;C:\Users\Cohen\.node-gyp\0.8.18\deps\v8\include;$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <OmitFramePointers>false</OmitFramePointers>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>ISOLATION_AWARE_ENABLED=1;WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;BUILDING_V8_SHARED=1;BUILDING_UV_SHARED=1;_WIN32;_WINDOWS;_UNICODE=1;BUILDING_NODE_EXTENSION;DEBUG;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>precompiled.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Comctl32.lib;C:\Users\Cohen\.node-gyp\0.8.18\$(Configuration)\node.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AllowIsolation>true</AllowIsolation>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ShowProgress>LinkVerbose</ShowProgress>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>C:\Users\Cohen\.node-gyp\0.8.18\src;C:\Users\Cohen\.node-gyp\0.8.18\deps\uv\include;C:\Users\Cohen\.node-gyp\0.8.18\deps\v8\include;..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;BUILDING_V8_SHARED=1;BUILDING_UV_SHARED=1;_WIN32;_WINDOWS;_UNICODE=1;BUILDING_NODE_EXTENSION;DEBUG;_DEBUG;%(PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Cohen\.node-gyp\0.8.18\src;C:\Users\Cohen\.node-gyp\0.8.18\deps\uv\include;C:\Users\Cohen\.node-gyp\0.8.18\deps\v8\include;..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>false</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>Full</Optimization>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;BUILDING_V8_SHARED=1;BUILDING_UV_SHARED=1;_WIN32;_WINDOWS;_UNICODE=1;BUILDING_NODE_EXTENSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <WarningLevel>Level3</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+    </ClCompile>
+    <Lib>
+      <AdditionalOptions>/LTCG %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+    <Link>
+      <AdditionalDependencies>C:\Users\Cohen\.node-gyp\0.8.18\$(Configuration)\node.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AllowIsolation>true</AllowIsolation>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)$(ProjectName).node</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>C:\Users\Cohen\.node-gyp\0.8.18\src;C:\Users\Cohen\.node-gyp\0.8.18\deps\uv\include;C:\Users\Cohen\.node-gyp\0.8.18\deps\v8\include;..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;BUILDING_V8_SHARED=1;BUILDING_UV_SHARED=1;_WIN32;_WINDOWS;_UNICODE=1;BUILDING_NODE_EXTENSION;%(PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>
